@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map with Real-Time Traffic</title>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 47.64516, lng: -122.5283},
+                zoom: 17,
+                mapTypeId: 'hybrid',
+                tilt: 45,
+                styles: [
+                    {
+                        featureType: 'all',
+                        elementType: 'all',
+                        stylers: [{ visibility: 'on' }]
+                    }
+                ]
+            });
+
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7gQ605lNyeDhWsglx6VT0SvG1IHgwOBw&libraries=places&callback=initMap">
+    </script>
+</head>
+
+<body>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+
+</body>
+</html>
+
